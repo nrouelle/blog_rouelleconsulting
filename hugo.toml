@@ -1,0 +1,4 @@
+baseURL = 'https://blog.rouelleconsulting.fr/'
+languageCode = 'fr-fr'
+title = 'Blog de Rouelle Consulting'
+theme = 'rouelleconsulting'
