@@ -1,12 +1,36 @@
 {{ define "main" }}
-<div class="posts">
-    {{ range .Site.RegularPages }}
-    <article class="post-preview">
-        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
-        <time>{{ .Date.Format "2 January 2006" }}</time>
-        <p>{{ .Summary }}</p>
-        <a href="{{ .Permalink }}">Lire la suite →</a>
+<div class="blog-hero">
+    <div class="blog-hero-content">
+        <h1>Blog <span class="gradient-text">Rouelle Consulting</span></h1>
+        <p class="blog-hero-subtitle">{{ .Site.Params.description }}</p>
+    </div>
+</div>
+
+<div class="posts-list">
+    {{ range (.Paginate (where .Site.RegularPages "Type" "posts")).Pages }}
+    <article class="post-item">
+        <h2 class="post-title">
+            <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </h2>
+        
+        <div class="post-meta">
+            <span class="post-date">📅 {{ .Date.Format "2 January 2006" }}</span>
+            <span class="reading-time">⏱️ {{ .ReadingTime }} min</span>
+            {{ if .Params.tags }}
+            <div class="post-tags-inline">
+                {{ range first 3 .Params.tags }}
+                <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}" class="tag-chip">#{{ . }}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+        
+        <p class="post-summary">{{ .Summary }}</p>
+        
+        <a href="{{ .Permalink }}" class="read-more">Lire la suite →</a>
     </article>
     {{ end }}
 </div>
+
+{{ template "_internal/pagination.html" . }}
 {{ end }}

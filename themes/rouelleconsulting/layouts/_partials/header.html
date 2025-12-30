@@ -1,10 +1,19 @@
-<header>
-    <nav>
-        <h1><a href="/">{{ .Site.Title }}</a></h1>
-        <ul>
-            {{ range .Site.Menus.main }}
-            <li><a href="{{ .URL }}">{{ .Name }}</a></li>
-            {{ end }}
-        </ul>
-    </nav>
-</header>
+<nav class="nav">
+    <div class="container">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-icon">💻</span>
+                <span>{{ .Site.Title }}</span>
+                {{ with .Site.Params.tagline }}
+                <span class="site-tagline">{{ . }}</span>
+                {{ end }}
+            </a>
+            <div class="nav-menu">
+                <a href="/">Accueil</a>
+                <a href="/posts/">Articles</a>
+                <a href="/tags/">Tags</a>
+                <a href="https://rouelleconsulting.fr" class="btn-nav">Site principal</a>
+            </div>
+        </div>
+    </div>
+</nav>

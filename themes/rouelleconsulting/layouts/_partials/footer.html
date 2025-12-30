@@ -1,3 +1,36 @@
-<footer>
-    <p>&copy; {{ now.Year }} {{ .Site.Title }}</p>
+<footer class="footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>{{ .Site.Title }}</h3>
+                <p class="footer-desc">{{ .Site.Params.description }}</p>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Navigation</h4>
+                <ul>
+                    <li><a href="/">Accueil</a></li>
+                    <li><a href="/posts/">Articles</a></li>
+                    <li><a href="/tags/">Tags</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Rouelle Consulting</h4>
+                <ul>
+                    <li><a href="https://rouelleconsulting.fr">Site principal</a></li>
+                    <li><a href="https://rouelleconsulting.fr/#services">Services</a></li>
+                    <li><a href="https://linkedin.com/in/nadege-rouelle">LinkedIn</a></li>
+                    <li><a href="/posts/index.xml">RSS</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div>© {{ now.Year }} Rouelle Consulting. Tous droits réservés.</div>
+            <div class="footer-links">
+                <a href="https://rouelleconsulting.fr">rouelleconsulting.fr</a>
+            </div>
+        </div>
+    </div>
 </footer>
